@@ -3,16 +3,9 @@ import Pyro5.api
 import threading
 from typing import Dict, Any
 from datetime import datetime
-
-# Importaciones locales
-try:
-    from procesador_imagen import ProcesadorImagenesImpl
-    from utils.logger import get_logger
-    from utils.estado_nodo import EstadoNodo
-except ImportError as e:
-    print(f" Error importando módulos: {e}")
-    print(" Asegúrate de que todos los archivos estén en las ubicaciones correctas")
-    sys.exit(1)
+from procesador_imagen import ProcesadorImagenesImpl
+from utils.logger import get_logger
+from utils.estado_nodo import EstadoNodo
 
 logger = get_logger("NodoWorker")
 
@@ -37,7 +30,7 @@ class NodoWorker:
     
     def saludar(self) -> str:
         """Método de prueba"""
-        return f"¡Hola desde nodo {self.id_nodo}! funcionando correctamente."
+        return f"Hola desde nodo {self.id_nodo}"
     
     def procesar(self, id_trabajo: str, ruta_entrada: str, ruta_salida: str, 
                  lista_transformaciones: list) -> Dict[str, Any]:
@@ -66,14 +59,14 @@ class NodoWorker:
             }
             
             if exito:
-                logger.info(f"[Nodo {self.id_nodo}]  Trabajo {id_trabajo} completado")
+                logger.info(f"[Nodo {self.id_nodo}] Trabajo {id_trabajo} completado exitosamente")
             else:
-                logger.error(f"[Nodo {self.id_nodo}]  Trabajo {id_trabajo} falló")
+                logger.error(f"[Nodo {self.id_nodo}] Trabajo {id_trabajo} fallo")
                 
             return resultado
             
         except Exception as e:
-            logger.error(f"[Nodo {self.id_nodo}]  Error en trabajo {id_trabajo}: {e}")
+            logger.error(f"[Nodo {self.id_nodo}] Error en trabajo {id_trabajo}: {e}")
             return {
                 "id_trabajo": id_trabajo,
                 "nodo": self.id_nodo,
@@ -102,14 +95,14 @@ def main():
     try:
         import Pyro5.api
     except ImportError:
-        print(" Pyro5 no está instalado. Ejecuta: pip install Pyro5")
+        print("ERROR: Pyro5 no está instalado. Ejecuta: pip install Pyro5")
         sys.exit(1)
     
     # Verificar que PIL esté instalado
     try:
         from PIL import Image
     except ImportError:
-        print(" Pillow no está instalado. Ejecuta: pip install Pillow")
+        print("ERROR: Pillow no está instalado. Ejecuta: pip install Pillow")
         sys.exit(1)
     
     nodo = NodoWorker(id_nodo)
@@ -123,20 +116,22 @@ def main():
         uri = daemon.register(nodo)
         ns.register(f"nodo.{id_nodo}", uri)
         
-        print("esta funcionando")
+        print("=" * 50)
         print(f"NODO WORKER {id_nodo} INICIADO CORRECTAMENTE")
         print(f"Registrado en NameServer con URI: {uri}")
         print(f"Estado inicial: {nodo.estado.value}")
         print("Esperando trabajos del servidor principal...")
+        print("=" * 50)
         
         daemon.requestLoop()
         
     except Pyro5.errors.NamingError as e:
-        print(f"Error: No se puede encontrar el NameServer")
-        print(f"   Error detallado: {e}")
+        print(f"ERROR: No se puede encontrar el NameServer")
+        print("Asegurate de ejecutar primero: python -m Pyro5.nameserver")
+        print(f"Error detallado: {e}")
         sys.exit(1)
     except Exception as e:
-        print(f"Error inesperado: {e}")
+        print(f"ERROR inesperado: {e}")
         sys.exit(1)
 
 if __name__ == "__main__":

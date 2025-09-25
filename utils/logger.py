@@ -31,7 +31,7 @@ def get_logger(name: str) -> logging.Logger:
             file_handler.setFormatter(formatter)
             logger.addHandler(file_handler)
         except Exception as e:
-            print(f" No se pudo crear archivo de log: {e}")
-            print(" Continuando solo con logs en consola...")
+            print(f"No se pudo crear archivo de log: {e}")
+            print("Continuando solo con logs en consola...")
     
     return logger
