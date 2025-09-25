@@ -1,0 +1,143 @@
+import sys
+import Pyro5.api
+import threading
+from typing import Dict, Any
+from datetime import datetime
+
+# Importaciones locales
+try:
+    from procesador_imagen import ProcesadorImagenesImpl
+    from utils.logger import get_logger
+    from utils.estado_nodo import EstadoNodo
+except ImportError as e:
+    print(f" Error importando módulos: {e}")
+    print(" Asegúrate de que todos los archivos estén en las ubicaciones correctas")
+    sys.exit(1)
+
+logger = get_logger("NodoWorker")
+
+@Pyro5.api.expose
+class NodoWorker:
+    def __init__(self, id_nodo: str):
+        self.id_nodo = id_nodo
+        self.estado = EstadoNodo.ACTIVO
+        self.procesador = ProcesadorImagenesImpl()
+        self.trabajos_activos = 0
+        self.lock = threading.Lock()
+        
+    def obtener_estado(self) -> Dict[str, Any]:
+        """Retorna el estado actual del nodo"""
+        with self.lock:
+            return {
+                "id_nodo": self.id_nodo,
+                "estado": self.estado.value,
+                "trabajos_activos": self.trabajos_activos,
+                "timestamp": datetime.now().isoformat()
+            }
+    
+    def saludar(self) -> str:
+        """Método de prueba"""
+        return f"¡Hola desde nodo {self.id_nodo}! funcionando correctamente."
+    
+    def procesar(self, id_trabajo: str, ruta_entrada: str, ruta_salida: str, 
+                 lista_transformaciones: list) -> Dict[str, Any]:
+        """Procesa una imagen con las transformaciones solicitadas"""
+        logger.info(f"[Nodo {self.id_nodo}] Iniciando trabajo {id_trabajo}")
+        
+        with self.lock:
+            self.trabajos_activos += 1
+            self.estado = EstadoNodo.PROCESANDO
+        
+        try:
+            # Procesar imagen
+            exito = self.procesador.procesar(
+                ruta_entrada, 
+                ruta_salida, 
+                lista_transformaciones,
+                id_trabajo
+            )
+            
+            resultado = {
+                "id_trabajo": id_trabajo,
+                "nodo": self.id_nodo,
+                "exito": exito,
+                "ruta_resultado": ruta_salida if exito else None,
+                "timestamp_fin": datetime.now().isoformat()
+            }
+            
+            if exito:
+                logger.info(f"[Nodo {self.id_nodo}]  Trabajo {id_trabajo} completado")
+            else:
+                logger.error(f"[Nodo {self.id_nodo}]  Trabajo {id_trabajo} falló")
+                
+            return resultado
+            
+        except Exception as e:
+            logger.error(f"[Nodo {self.id_nodo}]  Error en trabajo {id_trabajo}: {e}")
+            return {
+                "id_trabajo": id_trabajo,
+                "nodo": self.id_nodo,
+                "exito": False,
+                "error": str(e),
+                "timestamp_fin": datetime.now().isoformat()
+            }
+        finally:
+            with self.lock:
+                self.trabajos_activos -= 1
+                if self.trabajos_activos == 0:
+                    self.estado = EstadoNodo.ACTIVO
+
+def main():
+    if len(sys.argv) < 2:
+        print("Uso: python nodo_worker.py <id_nodo>")
+        print("Ejemplo: python nodo_worker.py worker01")
+        sys.exit(1)
+
+    id_nodo = sys.argv[1]
+    
+    print(f"Iniciando nodo worker: {id_nodo}")
+    print("Verificando dependencias...")
+    
+    # Verificar que Pyro5 esté instalado
+    try:
+        import Pyro5.api
+    except ImportError:
+        print(" Pyro5 no está instalado. Ejecuta: pip install Pyro5")
+        sys.exit(1)
+    
+    # Verificar que PIL esté instalado
+    try:
+        from PIL import Image
+    except ImportError:
+        print(" Pillow no está instalado. Ejecuta: pip install Pillow")
+        sys.exit(1)
+    
+    nodo = NodoWorker(id_nodo)
+
+    try:
+        # El nodo escucha en localhost (puerto automático)
+        daemon = Pyro5.server.Daemon(host="localhost")
+        
+        # Registrar en el NameServer local
+        ns = Pyro5.api.locate_ns()
+        uri = daemon.register(nodo)
+        ns.register(f"nodo.{id_nodo}", uri)
+        
+        print("esta funcionando")
+        print(f"NODO WORKER {id_nodo} INICIADO CORRECTAMENTE")
+        print(f"Registrado en NameServer con URI: {uri}")
+        print(f"Estado inicial: {nodo.estado.value}")
+        print("Esperando trabajos del servidor principal...")
+        
+        daemon.requestLoop()
+        
+    except Pyro5.errors.NamingError as e:
+        print(f"Error: No se puede encontrar el NameServer")
+        print(f"   Error detallado: {e}")
+        sys.exit(1)
+    except Exception as e:
+        print(f"Error inesperado: {e}")
+        sys.exit(1)
+
+if __name__ == "__main__":
+    main()
