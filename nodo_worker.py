@@ -5,7 +5,6 @@ from typing import Dict, Any
 from datetime import datetime
 from procesador_imagen import ProcesadorImagenesImpl
 from utils.logger import get_logger
-from utils.estado_nodo import EstadoNodo
 
 logger = get_logger("NodoWorker")
 
@@ -13,7 +12,7 @@ logger = get_logger("NodoWorker")
 class NodoWorker:
     def __init__(self, id_nodo: str):
         self.id_nodo = id_nodo
-        self.estado = EstadoNodo.ACTIVO
+        self.estado = "activo"
         self.procesador = ProcesadorImagenesImpl()
         self.trabajos_activos = 0
         self.lock = threading.Lock()
@@ -23,26 +22,26 @@ class NodoWorker:
         with self.lock:
             return {
                 "id_nodo": self.id_nodo,
-                "estado": self.estado.value,
+                "estado": self.estado,
                 "trabajos_activos": self.trabajos_activos,
                 "timestamp": datetime.now().isoformat()
             }
     
     def saludar(self) -> str:
-        """Método de prueba"""
+        """Metodo de prueba"""
         return f"Hola desde nodo {self.id_nodo}"
     
     def procesar(self, id_trabajo: str, ruta_entrada: str, ruta_salida: str, 
-                 lista_transformaciones: list) -> Dict[str, Any]:
+            lista_transformaciones: list) -> Dict[str, Any]:
         """Procesa una imagen con las transformaciones solicitadas"""
         logger.info(f"[Nodo {self.id_nodo}] Iniciando trabajo {id_trabajo}")
         
         with self.lock:
             self.trabajos_activos += 1
-            self.estado = EstadoNodo.PROCESANDO
+            self.estado = "procesando"
         
         try:
-            # Procesar imagen
+            # Procesar imagen usando el procesador
             exito = self.procesador.procesar(
                 ruta_entrada, 
                 ruta_salida, 
@@ -78,7 +77,7 @@ class NodoWorker:
             with self.lock:
                 self.trabajos_activos -= 1
                 if self.trabajos_activos == 0:
-                    self.estado = EstadoNodo.ACTIVO
+                    self.estado = "activo"
 
 def main():
     if len(sys.argv) < 2:
@@ -89,40 +88,45 @@ def main():
     id_nodo = sys.argv[1]
     
     print(f"Iniciando nodo worker: {id_nodo}")
-    print("Verificando dependencias...")
     
-    # Verificar que Pyro5 esté instalado
+    # Verificar dependencias
     try:
         import Pyro5.api
     except ImportError:
-        print("ERROR: Pyro5 no está instalado. Ejecuta: pip install Pyro5")
+        print("ERROR: Pyro5 no esta instalado. Ejecuta: pip install Pyro5")
         sys.exit(1)
     
-    # Verificar que PIL esté instalado
+    # Verificar que el procesador de imagenes funciona
     try:
-        from PIL import Image
-    except ImportError:
-        print("ERROR: Pillow no está instalado. Ejecuta: pip install Pillow")
+        from procesador_imagen import ProcesadorImagenesImpl
+        print("OK - Procesador de imagenes cargado correctamente")
+    except Exception as e:
+        print(f"ERROR - Error cargando procesador de imagenes: {e}")
         sys.exit(1)
     
     nodo = NodoWorker(id_nodo)
 
     try:
-        # El nodo escucha en localhost (puerto automático)
+        # Configurar el daemon para escuchar en localhost
         daemon = Pyro5.server.Daemon(host="localhost")
         
-        # Registrar en el NameServer local
+        # Registrar en el NameServer
         ns = Pyro5.api.locate_ns()
         uri = daemon.register(nodo)
         ns.register(f"nodo.{id_nodo}", uri)
         
         print("=" * 50)
         print(f"NODO WORKER {id_nodo} INICIADO CORRECTAMENTE")
-        print(f"Registrado en NameServer con URI: {uri}")
-        print(f"Estado inicial: {nodo.estado.value}")
-        print("Esperando trabajos del servidor principal...")
+        print(f"URI: {uri}")
+        print(f"Host: localhost")
+        print(f"Estado inicial: {nodo.estado}")
+        print("Transformaciones disponibles:")
+        for transformacion in nodo.procesador.transformaciones.keys():
+            print(f"  - {transformacion}")
+        print("Esperando trabajos...")
         print("=" * 50)
         
+        # Mantener el nodo activo
         daemon.requestLoop()
         
     except Pyro5.errors.NamingError as e:

@@ -1,0 +1,39 @@
+[2025-10-01 22:25:43] [INFO] [ProcesadorImagen]: [Trabajo test_escala_de_grises] Abriendo imagen: test_input.png
+[2025-10-01 22:25:43] [INFO] [ProcesadorImagen]: [Trabajo test_escala_de_grises] Imagen original: (200, 200)px, formato: PNG
+[2025-10-01 22:25:43] [INFO] [ProcesadorImagen]: [Trabajo test_escala_de_grises] Aplicando escala_grises (1/1)
+[2025-10-01 22:25:43] [INFO] [ProcesadorImagen]: [Trabajo test_escala_de_grises] Imagen guardada en test_output.png
+[2025-10-01 22:25:43] [INFO] [ProcesadorImagen]: [Trabajo test_redimensionar] Abriendo imagen: test_input.png
+[2025-10-01 22:25:43] [INFO] [ProcesadorImagen]: [Trabajo test_redimensionar] Imagen original: (200, 200)px, formato: PNG
+[2025-10-01 22:25:43] [INFO] [ProcesadorImagen]: [Trabajo test_redimensionar] Aplicando redimensionar (1/1)
+[2025-10-01 22:25:43] [INFO] [ProcesadorImagen]: [Trabajo test_redimensionar] Imagen guardada en test_output.png
+[2025-10-01 22:25:43] [INFO] [ProcesadorImagen]: [Trabajo test_recortar] Abriendo imagen: test_input.png
+[2025-10-01 22:25:43] [INFO] [ProcesadorImagen]: [Trabajo test_recortar] Imagen original: (200, 200)px, formato: PNG
+[2025-10-01 22:25:43] [INFO] [ProcesadorImagen]: [Trabajo test_recortar] Aplicando recortar (1/1)
+[2025-10-01 22:25:43] [INFO] [ProcesadorImagen]: [Trabajo test_recortar] Imagen guardada en test_output.png
+[2025-10-01 22:25:43] [INFO] [ProcesadorImagen]: [Trabajo test_rotar] Abriendo imagen: test_input.png
+[2025-10-01 22:25:43] [INFO] [ProcesadorImagen]: [Trabajo test_rotar] Imagen original: (200, 200)px, formato: PNG
+[2025-10-01 22:25:43] [INFO] [ProcesadorImagen]: [Trabajo test_rotar] Aplicando rotar (1/1)
+[2025-10-01 22:25:43] [INFO] [ProcesadorImagen]: [Trabajo test_rotar] Imagen guardada en test_output.png
+[2025-10-01 22:25:43] [INFO] [ProcesadorImagen]: [Trabajo test_reflejar] Abriendo imagen: test_input.png
+[2025-10-01 22:25:43] [INFO] [ProcesadorImagen]: [Trabajo test_reflejar] Imagen original: (200, 200)px, formato: PNG
+[2025-10-01 22:25:43] [INFO] [ProcesadorImagen]: [Trabajo test_reflejar] Aplicando reflejar (1/1)
+[2025-10-01 22:25:43] [INFO] [ProcesadorImagen]: [Trabajo test_reflejar] Imagen guardada en test_output.png
+[2025-10-01 22:25:43] [INFO] [ProcesadorImagen]: [Trabajo test_desenfocar] Abriendo imagen: test_input.png
+[2025-10-01 22:25:43] [INFO] [ProcesadorImagen]: [Trabajo test_desenfocar] Imagen original: (200, 200)px, formato: PNG
+[2025-10-01 22:25:43] [INFO] [ProcesadorImagen]: [Trabajo test_desenfocar] Aplicando desenfocar (1/1)
+[2025-10-01 22:25:43] [INFO] [ProcesadorImagen]: [Trabajo test_desenfocar] Imagen guardada en test_output.png
+[2025-10-01 22:25:43] [INFO] [ProcesadorImagen]: [Trabajo test_brillo_y_contraste] Abriendo imagen: test_input.png
+[2025-10-01 22:25:43] [INFO] [ProcesadorImagen]: [Trabajo test_brillo_y_contraste] Imagen original: (200, 200)px, formato: PNG
+[2025-10-01 22:25:43] [INFO] [ProcesadorImagen]: [Trabajo test_brillo_y_contraste] Aplicando brillo_contraste (1/1)
+[2025-10-01 22:25:43] [INFO] [ProcesadorImagen]: [Trabajo test_brillo_y_contraste] Imagen guardada en test_output.png
+[2025-10-01 22:25:43] [INFO] [ProcesadorImagen]: [Trabajo test_múltiples_transformaciones] Abriendo imagen: test_input.png
+[2025-10-01 22:25:43] [INFO] [ProcesadorImagen]: [Trabajo test_múltiples_transformaciones] Imagen original: (200, 200)px, formato: PNG
+[2025-10-01 22:25:43] [INFO] [ProcesadorImagen]: [Trabajo test_múltiples_transformaciones] Aplicando escala_grises (1/3)
+[2025-10-01 22:25:43] [INFO] [ProcesadorImagen]: [Trabajo test_múltiples_transformaciones] Aplicando redimensionar (2/3)
+[2025-10-01 22:25:43] [INFO] [ProcesadorImagen]: [Trabajo test_múltiples_transformaciones] Aplicando desenfocar (3/3)
+[2025-10-01 22:25:43] [INFO] [ProcesadorImagen]: [Trabajo test_múltiples_transformaciones] Imagen guardada en test_output.png
+[2025-10-01 22:37:18] [INFO] [ProcesadorImagen]: [Trabajo test_worker_01] Abriendo imagen: test_input_worker.png
+[2025-10-01 22:37:18] [INFO] [ProcesadorImagen]: [Trabajo test_worker_01] Imagen original: (100, 100)px, formato: PNG
+[2025-10-01 22:37:18] [INFO] [ProcesadorImagen]: [Trabajo test_worker_01] Aplicando escala_grises (1/2)
+[2025-10-01 22:37:18] [INFO] [ProcesadorImagen]: [Trabajo test_worker_01] Aplicando redimensionar (2/2)
+[2025-10-01 22:37:18] [INFO] [ProcesadorImagen]: [Trabajo test_worker_01] Imagen guardada en test_output_worker.png
