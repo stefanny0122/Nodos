@@ -1,0 +1,12 @@
+[2025-10-09 02:34:00] [INFO] [ProcesadorImagen]: [Trabajo img_8] Abriendo imagen: C:\Users\GAMER\AppData\Local\Temp\tmp4blfvprv.jpeg
+[2025-10-09 02:34:00] [INFO] [ProcesadorImagen]: [Trabajo img_8] Imagen original: (736, 1308)px, formato: JPEG
+[2025-10-09 02:34:00] [ERROR] [ProcesadorImagen]: [Trabajo img_8] Transformación no soportada: grayscale
+[2025-10-09 02:34:01] [INFO] [ProcesadorImagen]: [Trabajo img_9] Abriendo imagen: C:\Users\GAMER\AppData\Local\Temp\tmpz4l58e2h.jpeg
+[2025-10-09 02:34:01] [INFO] [ProcesadorImagen]: [Trabajo img_9] Imagen original: (735, 420)px, formato: JPEG
+[2025-10-09 02:34:01] [ERROR] [ProcesadorImagen]: [Trabajo img_9] Transformación no soportada: grayscale
+[2025-10-09 02:34:01] [INFO] [ProcesadorImagen]: [Trabajo img_12] Abriendo imagen: C:\Users\GAMER\AppData\Local\Temp\tmp1_k3z_tw.jpeg
+[2025-10-09 02:34:01] [INFO] [ProcesadorImagen]: [Trabajo img_12] Imagen original: (735, 420)px, formato: JPEG
+[2025-10-09 02:34:01] [ERROR] [ProcesadorImagen]: [Trabajo img_12] Transformación no soportada: grayscale
+[2025-10-09 02:34:01] [INFO] [ProcesadorImagen]: [Trabajo img_13] Abriendo imagen: C:\Users\GAMER\AppData\Local\Temp\tmpylhit4po.jpeg
+[2025-10-09 02:34:01] [INFO] [ProcesadorImagen]: [Trabajo img_13] Imagen original: (735, 420)px, formato: JPEG
+[2025-10-09 02:34:01] [ERROR] [ProcesadorImagen]: [Trabajo img_13] Transformación no soportada: grayscale

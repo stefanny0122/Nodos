@@ -1,0 +1,55 @@
+[2025-10-09 01:48:15] [INFO] [NodoWorker]: ✓ Pyro5 instalado
+[2025-10-09 01:48:15] [INFO] [NodoWorker]: ✓ Pillow instalado
+[2025-10-09 01:48:15] [INFO] [NodoWorker]: ✓ ProcesadorImagenesImpl disponible
+[2025-10-09 01:48:15] [INFO] [NodoWorker]: Nodo worker01 inicializado con capacidad: 5
+[2025-10-09 01:48:15] [INFO] [NodoWorker]: Configurando daemon Pyro5 en localhost...
+[2025-10-09 01:48:15] [INFO] [NodoWorker]: Conectando con NameServer...
+[2025-10-09 01:48:29] [INFO] [NodoWorker]: ✓ Pyro5 instalado
+[2025-10-09 01:48:29] [INFO] [NodoWorker]: ✓ Pillow instalado
+[2025-10-09 01:48:29] [INFO] [NodoWorker]: ✓ ProcesadorImagenesImpl disponible
+[2025-10-09 01:48:29] [INFO] [NodoWorker]: Nodo worker02 inicializado con capacidad: 10
+[2025-10-09 01:48:29] [INFO] [NodoWorker]: Configurando daemon Pyro5 en localhost...
+[2025-10-09 01:48:30] [INFO] [NodoWorker]: Conectando con NameServer...
+[2025-10-09 01:48:40] [INFO] [NodoWorker]: ✓ Pyro5 instalado
+[2025-10-09 01:48:40] [INFO] [NodoWorker]: ✓ Pillow instalado
+[2025-10-09 01:48:40] [INFO] [NodoWorker]: ✓ ProcesadorImagenesImpl disponible
+[2025-10-09 01:48:40] [INFO] [NodoWorker]: Nodo worker03 inicializado con capacidad: 5
+[2025-10-09 01:48:40] [INFO] [NodoWorker]: Configurando daemon Pyro5 en localhost...
+[2025-10-09 01:48:40] [INFO] [NodoWorker]: Conectando con NameServer...
+[2025-10-09 02:14:36] [INFO] [NodoWorker]: [worker01] Iniciando trabajo img_5 - Transformaciones: 2
+[2025-10-09 02:14:36] [ERROR] [NodoWorker]: [img_5] Archivo no existe: uploads\lote_6d3e6b69399b49c8\20251009_021429_55c04c57_descarga3.jpeg
+[2025-10-09 02:14:36] [ERROR] [NodoWorker]: [worker01] Error en trabajo img_5: Rutas de archivo inválidas
+Traceback (most recent call last):
+  File "D:\Nodos\nodo_worker.py", line 157, in procesar
+    raise ValueError("Rutas de archivo inválidas")
+ValueError: Rutas de archivo inválidas
+[2025-10-09 02:14:36] [INFO] [NodoWorker]: [worker01] Iniciando trabajo img_6 - Transformaciones: 2
+[2025-10-09 02:14:36] [ERROR] [NodoWorker]: [img_6] Archivo no existe: uploads\lote_6d3e6b69399b49c8\20251009_021429_d3ddc299_130StitchWallpaperUniqueHighqualityHD-Wallterest2.jpeg
+[2025-10-09 02:14:36] [ERROR] [NodoWorker]: [worker01] Error en trabajo img_6: Rutas de archivo inválidas
+Traceback (most recent call last):
+  File "D:\Nodos\nodo_worker.py", line 157, in procesar
+    raise ValueError("Rutas de archivo inválidas")
+ValueError: Rutas de archivo inválidas
+[2025-10-09 02:14:36] [INFO] [NodoWorker]: [worker01] Iniciando trabajo img_7 - Transformaciones: 2
+[2025-10-09 02:14:36] [ERROR] [NodoWorker]: [img_7] Archivo no existe: uploads\lote_6d3e6b69399b49c8\20251009_021429_58c10737_130StitchWallpaperUniqueHighqualityHD-Wallterest1.jpeg
+[2025-10-09 02:14:36] [ERROR] [NodoWorker]: [worker01] Error en trabajo img_7: Rutas de archivo inválidas
+Traceback (most recent call last):
+  File "D:\Nodos\nodo_worker.py", line 157, in procesar
+    raise ValueError("Rutas de archivo inválidas")
+ValueError: Rutas de archivo inválidas
+[2025-10-09 02:33:08] [INFO] [NodoWorker]: ✓ Pyro5 instalado
+[2025-10-09 02:33:08] [INFO] [NodoWorker]: ✓ Pillow instalado
+[2025-10-09 02:33:08] [INFO] [NodoWorker]: ✓ ProcesadorImagenesImpl disponible
+[2025-10-09 02:33:08] [INFO] [NodoWorker]: Nodo worker01 inicializado con capacidad: 5
+[2025-10-09 02:33:08] [INFO] [NodoWorker]: Configurando daemon Pyro5 en localhost...
+[2025-10-09 02:33:08] [INFO] [NodoWorker]: Conectando con NameServer...
+[2025-10-09 02:34:00] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_8 - Archivo: 20251009_023354_e1e944fa_descarga3.jpeg, Transformaciones: 2
+[2025-10-09 02:34:00] [ERROR] [NodoWorker]: [worker01] ✗ Trabajo img_8 falló: Error procesando imagen - no se generó resultado
+[2025-10-09 02:34:01] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_9 - Archivo: 20251009_023354_17e70659_130StitchWallpaperUniqueHighqualityHD-Wallterest2.jpeg, Transformaciones: 2
+[2025-10-09 02:34:01] [ERROR] [NodoWorker]: [worker01] ✗ Trabajo img_9 falló: Error procesando imagen - no se generó resultado
+[2025-10-09 02:34:01] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_12 - Archivo: 20251009_023354_74047f46_130StitchWallpaperUniqueHighqualityHD-Wallterest2.jpeg, Transformaciones: 2
+[2025-10-09 02:34:01] [ERROR] [NodoWorker]: [worker01] ✗ Trabajo img_12 falló: Error procesando imagen - no se generó resultado
+[2025-10-09 02:34:01] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_13 - Archivo: 20251009_023354_813013fa_130StitchWallpaperUniqueHighqualityHD-Wallterest1.jpeg, Transformaciones: 2
+[2025-10-09 02:34:01] [ERROR] [NodoWorker]: [worker01] ✗ Trabajo img_13 falló: Error procesando imagen - no se generó resultado
+[2025-10-09 02:37:38] [INFO] [NodoWorker]: Señal SIGINT recibida. Shutdown ordenado...
+[2025-10-09 02:37:38] [INFO] [NodoWorker]: Nodo worker01 iniciando detención...
