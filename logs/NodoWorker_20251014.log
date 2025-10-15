@@ -1,0 +1,18 @@
+[2025-10-14 21:19:55] [INFO] [NodoWorker]: ✓ Pyro5 instalado
+[2025-10-14 21:19:55] [INFO] [NodoWorker]: ✓ Pillow instalado
+[2025-10-14 21:19:55] [INFO] [NodoWorker]: ✓ ProcesadorImagenesImpl disponible
+[2025-10-14 21:19:55] [INFO] [NodoWorker]: Nodo worker01 inicializado con capacidad: 5
+[2025-10-14 21:19:55] [INFO] [NodoWorker]: Configurando daemon Pyro5 en localhost...
+[2025-10-14 21:19:55] [INFO] [NodoWorker]: Conectando con NameServer...
+[2025-10-14 21:20:14] [INFO] [NodoWorker]: ✓ Pyro5 instalado
+[2025-10-14 21:20:14] [INFO] [NodoWorker]: ✓ Pillow instalado
+[2025-10-14 21:20:14] [INFO] [NodoWorker]: ✓ ProcesadorImagenesImpl disponible
+[2025-10-14 21:20:14] [INFO] [NodoWorker]: Nodo worker03 inicializado con capacidad: 10
+[2025-10-14 21:20:14] [INFO] [NodoWorker]: Configurando daemon Pyro5 en localhost...
+[2025-10-14 21:20:14] [INFO] [NodoWorker]: Conectando con NameServer...
+[2025-10-14 21:21:32] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_59 - Archivo: 20251014_212125_c4ce7f56_ëê²½íë8K.jpeg, Transformaciones: 3
+[2025-10-14 21:21:32] [INFO] [NodoWorker]: [worker03] Procesando trabajo con archivo: img_60 - Archivo: 20251014_212125_f4dca864_descarga6.jpeg, Transformaciones: 3
+[2025-10-14 21:21:32] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_59 completado en 0.27s (total: 0.28s)
+[2025-10-14 21:21:32] [INFO] [NodoWorker]: [worker03] ✓ Trabajo img_60 completado en 0.22s (total: 0.23s)
+[2025-10-14 21:21:32] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_61 - Archivo: 20251014_212125_a834b065_20f46d550e4ad41d8c3e8d6f3791effb.jpg, Transformaciones: 3
+[2025-10-14 21:21:33] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_61 completado en 0.15s (total: 0.15s)

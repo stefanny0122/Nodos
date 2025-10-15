@@ -1,0 +1,14 @@
+[2025-10-14 21:19:55] [INFO] [ProcesadorImagen]: Procesador inicializado con 20 transformaciones
+[2025-10-14 21:20:14] [INFO] [ProcesadorImagen]: Procesador inicializado con 20 transformaciones
+[2025-10-14 21:21:32] [INFO] [ProcesadorImagen]: [Trabajo img_59] Abriendo imagen: C:\Users\GAMER\AppData\Local\Temp\tmpon34ugi4.jpeg
+[2025-10-14 21:21:32] [INFO] [ProcesadorImagen]: [Trabajo img_59] Imagen original: (736, 1307)px, formato: JPEG
+[2025-10-14 21:21:32] [INFO] [ProcesadorImagen]: [Trabajo img_60] Abriendo imagen: C:\Users\GAMER\AppData\Local\Temp\tmp77grxa20.jpeg
+[2025-10-14 21:21:32] [INFO] [ProcesadorImagen]: [Trabajo img_59] Guardando resultado: C:\Users\GAMER\AppData\Local\Temp\tmp11dy1w1h.png
+[2025-10-14 21:21:32] [INFO] [ProcesadorImagen]: [Trabajo img_60] Imagen original: (736, 1307)px, formato: JPEG
+[2025-10-14 21:21:32] [INFO] [ProcesadorImagen]: [Trabajo img_60] Guardando resultado: C:\Users\GAMER\AppData\Local\Temp\tmpelfftfik.png
+[2025-10-14 21:21:32] [INFO] [ProcesadorImagen]: [Trabajo img_59] ✓ Procesamiento completado. Transformaciones: ['grayscale', 'blur', 'watermark']
+[2025-10-14 21:21:32] [INFO] [ProcesadorImagen]: [Trabajo img_60] ✓ Procesamiento completado. Transformaciones: ['grayscale', 'blur', 'watermark']
+[2025-10-14 21:21:32] [INFO] [ProcesadorImagen]: [Trabajo img_61] Abriendo imagen: C:\Users\GAMER\AppData\Local\Temp\tmpl7s5onab.jpg
+[2025-10-14 21:21:32] [INFO] [ProcesadorImagen]: [Trabajo img_61] Imagen original: (702, 1247)px, formato: JPEG
+[2025-10-14 21:21:32] [INFO] [ProcesadorImagen]: [Trabajo img_61] Guardando resultado: C:\Users\GAMER\AppData\Local\Temp\tmpf0klp9e7.png
+[2025-10-14 21:21:33] [INFO] [ProcesadorImagen]: [Trabajo img_61] ✓ Procesamiento completado. Transformaciones: ['grayscale', 'blur', 'watermark']
