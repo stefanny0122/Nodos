@@ -53,3 +53,105 @@ ValueError: Rutas de archivo inválidas
 [2025-10-09 02:34:01] [ERROR] [NodoWorker]: [worker01] ✗ Trabajo img_13 falló: Error procesando imagen - no se generó resultado
 [2025-10-09 02:37:38] [INFO] [NodoWorker]: Señal SIGINT recibida. Shutdown ordenado...
 [2025-10-09 02:37:38] [INFO] [NodoWorker]: Nodo worker01 iniciando detención...
+[2025-10-09 02:37:49] [INFO] [NodoWorker]: ✓ Pyro5 instalado
+[2025-10-09 02:37:49] [INFO] [NodoWorker]: ✓ Pillow instalado
+[2025-10-09 02:37:49] [INFO] [NodoWorker]: ✓ ProcesadorImagenesImpl disponible
+[2025-10-09 02:37:49] [INFO] [NodoWorker]: Nodo worker01 inicializado con capacidad: 5
+[2025-10-09 02:37:49] [INFO] [NodoWorker]: Configurando daemon Pyro5 en localhost...
+[2025-10-09 02:37:49] [INFO] [NodoWorker]: Conectando con NameServer...
+[2025-10-09 02:39:06] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_14 - Archivo: 20251009_023859_0f0869fe_descarga3.jpeg, Transformaciones: 2
+[2025-10-09 02:39:06] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_14 completado en 0.34s (total: 0.35s)
+[2025-10-09 02:39:07] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_17 - Archivo: 20251009_023859_f969b86f_descarga3.jpeg, Transformaciones: 2
+[2025-10-09 02:39:07] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_17 completado en 0.20s (total: 0.21s)
+[2025-10-09 02:39:07] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_18 - Archivo: 20251009_023859_f53e70bd_130StitchWallpaperUniqueHighqualityHD-Wallterest2.jpeg, Transformaciones: 2
+[2025-10-09 02:39:07] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_18 completado en 0.08s (total: 0.09s)
+[2025-10-09 02:39:07] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_20 - Archivo: 20251009_023859_59106a3c_descarga3.jpeg, Transformaciones: 2
+[2025-10-09 02:39:08] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_20 completado en 0.30s (total: 0.31s)
+[2025-10-09 02:39:08] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_22 - Archivo: 20251009_023859_617450bd_130StitchWallpaperUniqueHighqualityHD-Wallterest1.jpeg, Transformaciones: 2
+[2025-10-09 02:39:08] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_22 completado en 0.10s (total: 0.11s)
+[2025-10-09 02:40:54] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_23 - Archivo: 20251009_024047_9b9c6cf7_descarga3.jpeg, Transformaciones: 3
+[2025-10-09 02:40:55] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_23 completado en 0.49s (total: 0.50s)
+[2025-10-09 02:40:55] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_25 - Archivo: 20251009_024047_a7b149f8_130StitchWallpaperUniqueHighqualityHD-Wallterest1.jpeg, Transformaciones: 3
+[2025-10-09 02:40:55] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_25 completado en 0.15s (total: 0.15s)
+[2025-10-09 02:40:55] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_26 - Archivo: 20251009_024047_25c49d21_descarga3.jpeg, Transformaciones: 3
+[2025-10-09 02:40:55] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_26 completado en 0.37s (total: 0.38s)
+[2025-10-09 02:40:56] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_29 - Archivo: 20251009_024047_d4ff80e7_descarga3.jpeg, Transformaciones: 3
+[2025-10-09 02:40:56] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_29 completado en 0.27s (total: 0.28s)
+[2025-10-09 02:40:56] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_31 - Archivo: 20251009_024047_4e608c28_130StitchWallpaperUniqueHighqualityHD-Wallterest1.jpeg, Transformaciones: 3
+[2025-10-09 02:40:56] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_31 completado en 0.10s (total: 0.11s)
+[2025-10-09 02:40:57] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_32 - Archivo: 20251009_024047_066db4fe_descarga2.jpeg, Transformaciones: 3
+[2025-10-09 02:40:57] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_32 completado en 0.17s (total: 0.18s)
+[2025-10-09 02:40:57] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_33 - Archivo: 20251009_024047_c6b7e8b0_Stich.jpeg, Transformaciones: 3
+[2025-10-09 02:40:57] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_33 completado en 0.26s (total: 0.27s)
+[2025-10-09 03:01:05] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_34 - Archivo: 20251009_030058_012aad37_descarga3.jpeg, Transformaciones: 3
+[2025-10-09 03:01:05] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_34 completado en 0.23s (total: 0.24s)
+[2025-10-09 03:01:06] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_35 - Archivo: 20251009_030058_a141e620_130StitchWallpaperUniqueHighqualityHD-Wallterest2.jpeg, Transformaciones: 3
+[2025-10-09 03:01:06] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_35 completado en 0.12s (total: 0.12s)
+[2025-10-09 03:01:06] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_36 - Archivo: 20251009_030058_bd57b33e_130StitchWallpaperUniqueHighqualityHD-Wallterest1.jpeg, Transformaciones: 3
+[2025-10-09 03:01:06] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_36 completado en 0.10s (total: 0.10s)
+[2025-10-09 03:01:06] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_37 - Archivo: 20251009_030058_678f467a_descarga3.jpeg, Transformaciones: 3
+[2025-10-09 03:01:06] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_37 completado en 0.25s (total: 0.26s)
+[2025-10-09 03:01:07] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_39 - Archivo: 20251009_030059_b1a6ff15_130StitchWallpaperUniqueHighqualityHD-Wallterest1.jpeg, Transformaciones: 3
+[2025-10-09 03:01:07] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_39 completado en 0.13s (total: 0.14s)
+[2025-10-09 03:01:07] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_40 - Archivo: 20251009_030059_5b1f4faa_descarga3.jpeg, Transformaciones: 3
+[2025-10-09 03:01:07] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_40 completado en 0.22s (total: 0.23s)
+[2025-10-09 03:01:07] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_41 - Archivo: 20251009_030059_651c89d2_130StitchWallpaperUniqueHighqualityHD-Wallterest2.jpeg, Transformaciones: 3
+[2025-10-09 03:01:07] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_41 completado en 0.07s (total: 0.07s)
+[2025-10-09 03:01:07] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_42 - Archivo: 20251009_030059_6040d9d7_130StitchWallpaperUniqueHighqualityHD-Wallterest1.jpeg, Transformaciones: 3
+[2025-10-09 03:01:08] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_42 completado en 0.06s (total: 0.07s)
+[2025-10-09 03:01:08] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_43 - Archivo: 20251009_030059_4eca008d_descarga2.jpeg, Transformaciones: 3
+[2025-10-09 03:01:08] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_43 completado en 0.09s (total: 0.10s)
+[2025-10-09 03:01:08] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_44 - Archivo: 20251009_030059_8815b606_Stich.jpeg, Transformaciones: 3
+[2025-10-09 03:01:08] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_44 completado en 0.12s (total: 0.13s)
+[2025-10-09 03:01:08] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_45 - Archivo: 20251009_030059_0c1e6703_nature.jpg, Transformaciones: 3
+[2025-10-09 03:01:09] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_45 completado en 0.17s (total: 0.18s)
+[2025-10-09 03:01:09] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_46 - Archivo: 20251009_030059_f248c4f4_descarga2.jpg, Transformaciones: 3
+[2025-10-09 03:01:09] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_46 completado en 0.18s (total: 0.20s)
+[2025-10-09 03:01:09] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_47 - Archivo: 20251009_030059_f0246f0b_Onefollowisnotathingforyoubutitisabighelpforme.jpg, Transformaciones: 3
+[2025-10-09 03:01:09] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_47 completado en 0.16s (total: 0.18s)
+[2025-10-09 03:01:09] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_48 - Archivo: 20251009_030059_728d865c_nature.jpg, Transformaciones: 3
+[2025-10-09 03:01:09] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_48 completado en 0.15s (total: 0.16s)
+[2025-10-09 03:01:10] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_49 - Archivo: 20251009_030059_e2dd6528_descarga2.jpg, Transformaciones: 3
+[2025-10-09 03:01:10] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_49 completado en 0.19s (total: 0.20s)
+[2025-10-09 03:01:10] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_50 - Archivo: 20251009_030059_1f437866_Onefollowisnotathingforyoubutitisabighelpforme.jpg, Transformaciones: 3
+[2025-10-09 03:01:10] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_50 completado en 0.19s (total: 0.20s)
+[2025-10-09 11:48:47] [INFO] [NodoWorker]: ✓ Pyro5 instalado
+[2025-10-09 11:48:47] [INFO] [NodoWorker]: ✓ Pillow instalado
+[2025-10-09 11:48:47] [INFO] [NodoWorker]: ✓ ProcesadorImagenesImpl disponible
+[2025-10-09 11:48:47] [INFO] [NodoWorker]: Nodo worker01 inicializado con capacidad: 5
+[2025-10-09 11:48:47] [INFO] [NodoWorker]: Configurando daemon Pyro5 en localhost...
+[2025-10-09 11:48:47] [INFO] [NodoWorker]: Conectando con NameServer...
+[2025-10-09 11:48:59] [INFO] [NodoWorker]: ✓ Pyro5 instalado
+[2025-10-09 11:48:59] [INFO] [NodoWorker]: ✓ Pillow instalado
+[2025-10-09 11:48:59] [INFO] [NodoWorker]: ✓ ProcesadorImagenesImpl disponible
+[2025-10-09 11:48:59] [INFO] [NodoWorker]: Nodo worker02 inicializado con capacidad: 10
+[2025-10-09 11:48:59] [INFO] [NodoWorker]: Configurando daemon Pyro5 en localhost...
+[2025-10-09 11:48:59] [INFO] [NodoWorker]: Conectando con NameServer...
+[2025-10-09 11:50:17] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_51 - Archivo: 20251009_115010_d13e5c80_diagramadearquitectura.png, Transformaciones: 2
+[2025-10-09 11:50:18] [INFO] [NodoWorker]: [worker02] Procesando trabajo con archivo: img_52 - Archivo: 20251009_115010_2e6eeea3_ImagendeWhatsApp2025-09-18alas144907_a932bc31.jpg, Transformaciones: 2
+[2025-10-09 11:50:18] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_51 completado en 0.83s (total: 0.85s)
+[2025-10-09 11:50:19] [INFO] [NodoWorker]: [worker02] ✓ Trabajo img_52 completado en 0.98s (total: 1.08s)
+[2025-10-09 13:58:00] [INFO] [NodoWorker]: Señal SIGINT recibida. Shutdown ordenado...
+[2025-10-09 13:58:00] [INFO] [NodoWorker]: Nodo worker01 iniciando detención...
+[2025-10-09 13:58:08] [INFO] [NodoWorker]: ✓ Pyro5 instalado
+[2025-10-09 13:58:08] [INFO] [NodoWorker]: ✓ Pillow instalado
+[2025-10-09 13:58:08] [INFO] [NodoWorker]: ✓ ProcesadorImagenesImpl disponible
+[2025-10-09 13:58:08] [INFO] [NodoWorker]: Nodo worker01 inicializado con capacidad: 5
+[2025-10-09 13:58:08] [INFO] [NodoWorker]: Configurando daemon Pyro5 en localhost...
+[2025-10-09 13:58:08] [INFO] [NodoWorker]: Conectando con NameServer...
+[2025-10-09 13:58:14] [INFO] [NodoWorker]: Señal SIGINT recibida. Shutdown ordenado...
+[2025-10-09 13:58:14] [INFO] [NodoWorker]: Nodo worker02 iniciando detención...
+[2025-10-09 13:58:22] [INFO] [NodoWorker]: ✓ Pyro5 instalado
+[2025-10-09 13:58:22] [INFO] [NodoWorker]: ✓ Pillow instalado
+[2025-10-09 13:58:22] [INFO] [NodoWorker]: ✓ ProcesadorImagenesImpl disponible
+[2025-10-09 13:58:22] [INFO] [NodoWorker]: Nodo worker02 inicializado con capacidad: 10
+[2025-10-09 13:58:22] [INFO] [NodoWorker]: Configurando daemon Pyro5 en localhost...
+[2025-10-09 13:58:22] [INFO] [NodoWorker]: Conectando con NameServer...
+[2025-10-09 14:04:29] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_53 - Archivo: 20251009_140418_171674ed_diagramadearquitectura.png, Transformaciones: 4
+[2025-10-09 14:04:30] [INFO] [NodoWorker]: [worker02] Procesando trabajo con archivo: img_54 - Archivo: 20251009_140418_8fa588c0_ImagendeWhatsApp2025-09-18alas144907_a932bc31.jpg, Transformaciones: 4
+[2025-10-09 14:04:30] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_53 completado en 1.14s (total: 1.17s)
+[2025-10-09 14:04:30] [INFO] [NodoWorker]: [worker02] ✓ Trabajo img_54 completado en 0.63s (total: 0.73s)
+[2025-10-09 14:08:42] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_57 - Archivo: 20251009_140836_545b2d9a_Screenshot2025-03-29at111047.png, Transformaciones: 3
+[2025-10-09 14:08:42] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_57 completado en 0.16s (total: 0.18s)
+[2025-10-09 14:08:43] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_58 - Archivo: 20251009_140836_58322e50_image.png, Transformaciones: 3
+[2025-10-09 14:08:44] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_58 completado en 0.85s (total: 0.90s)
