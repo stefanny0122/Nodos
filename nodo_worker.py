@@ -329,24 +329,24 @@ def validar_dependencias():
     
     try:
         import Pyro5.api
-        logger.info("✓ Pyro5 instalado")
+        logger.info(" Pyro5 instalado")
     except ImportError:
         errores.append("Pyro5 no instalado. Ejecuta: pip install Pyro5")
     
     try:
         from PIL import Image
-        logger.info("✓ Pillow instalado")
+        logger.info("Pillow instalado")
     except ImportError:
         errores.append("Pillow no instalado. Ejecuta: pip install Pillow")
     
     try:
         from procesador_imagen import ProcesadorImagenesImpl
-        logger.info("✓ ProcesadorImagenesImpl disponible")
+        logger.info("ProcesadorImagenesImpl disponible")
     except Exception as e:
         errores.append(f"Error cargando procesador: {e}")
     
     if errores:
-        print("\n❌ ERRORES DE DEPENDENCIAS:")
+        print("\nERRORES DE DEPENDENCIAS:")
         for error in errores:
             print(f"   • {error}")
         print()
@@ -358,10 +358,10 @@ def configurar_signal_handlers(nodo: NodoWorker, daemon):
     def signal_handler(signum, frame):
         nombre_signal = "SIGINT" if signum == signal.SIGINT else "SIGTERM"
         logger.info(f"Señal {nombre_signal} recibida. Shutdown ordenado...")
-        print(f"\n\n🛑 Deteniendo nodo {nodo.id_nodo}...")
+        print(f"\n\n Deteniendo nodo {nodo.id_nodo}...")
         nodo.detener()
         daemon.shutdown()
-        print("✓ Nodo detenido correctamente\n")
+        print("Nodo detenido correctamente\n")
         sys.exit(0)
     
     signal.signal(signal.SIGINT, signal_handler)
@@ -375,7 +375,7 @@ def main():
     print("="*70 + "\n")
     
     if len(sys.argv) < 2:
-        print("❌ Argumentos insuficientes\n")
+        print("Argumentos insuficientes\n")
         print("Uso: python nodo_worker.py <id_nodo> [capacidad] [host] [puerto]")
         print("\nEjemplos:")
         print("  python nodo_worker.py worker01")
@@ -431,7 +431,7 @@ def main():
         
         # Banner de inicio exitoso
         print("="*70)
-        print(f"✓ NODO WORKER '{id_nodo}' INICIADO CORRECTAMENTE")
+        print(f"NODO WORKER '{id_nodo}' INICIADO CORRECTAMENTE")
         print("="*70)
         print(f"URI Pyro5     : {uri}")
         print(f"Nombre NS     : {nombre_registro}")
@@ -449,9 +449,9 @@ def main():
         
     except Pyro5.errors.NamingError as e:
         print("\n" + "!"*70)
-        print("❌ ERROR: No se puede conectar con el NameServer")
+        print(" ERROR: No se puede conectar con el NameServer")
         print("!"*70)
-        print("\n📋 SOLUCIÓN:")
+        print("\n SOLUCIÓN:")
         print("1. Inicia el NameServer en otra terminal:")
         print("   python -m Pyro5.nameserver")
         print("\n2. Verifica que esté corriendo:")
@@ -462,16 +462,16 @@ def main():
         sys.exit(1)
         
     except KeyboardInterrupt:
-        print("\n\n🛑 Shutdown ordenado iniciado...")
+        print("\n\n Shutdown ordenado iniciado...")
         if daemon:
             nodo.detener()
             daemon.shutdown()
         logger.info(f"Nodo {id_nodo} detenido por usuario")
-        print("✓ Nodo detenido correctamente\n")
+        print("Nodo detenido correctamente\n")
         
     except Exception as e:
         logger.error(f"ERROR CRÍTICO: {e}", exc_info=True)
-        print(f"\n❌ ERROR CRÍTICO: {e}\n")
+        print(f"\n ERROR CRÍTICO: {e}\n")
         sys.exit(1)
 
 

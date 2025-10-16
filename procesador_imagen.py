@@ -184,7 +184,7 @@ class ProcesadorImagenesImpl:
         return img.filter(ImageFilter.EDGE_ENHANCE_MORE)
     
     def _aplicar_convertir_formato(self, img: Image.Image, parametros: Dict) -> Image.Image:
-        """Convierte formato (se aplica al guardar)"""
+        """Convierte formato (se aplica al guardado)"""
         # Esta transformación se maneja en el guardado
         return img
     
