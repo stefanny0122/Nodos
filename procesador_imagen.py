@@ -53,6 +53,7 @@ class ProcesadorImagenesImpl:
                  lista_transformaciones: List[Dict], id_trabajo: str = None) -> bool:
         """
         Procesa una imagen aplicando una lista de transformaciones.
+        Devuelve UNA SOLA imagen con todos los cambios aplicados.
         
         Args:
             ruta_entrada: Ruta del archivo de entrada
@@ -66,7 +67,7 @@ class ProcesadorImagenesImpl:
         id_trabajo = id_trabajo or "desconocido"
         
         try:
-            logger.info(f"[Trabajo {id_trabajo}] Abriendo imagen: {ruta_entrada}")
+            logger.info(f"[Trabajo {id_trabajo}] Procesando imagen con {len(lista_transformaciones)} transformaciones")
             
             # Validar archivo de entrada
             if not os.path.exists(ruta_entrada):
@@ -81,7 +82,7 @@ class ProcesadorImagenesImpl:
                 
                 logger.info(f"[Trabajo {id_trabajo}] Imagen original: {img.size}px, formato: {img.format}")
                 
-                # Aplicar transformaciones en orden
+                # Aplicar transformaciones en orden - SOBRE LA MISMA IMAGEN
                 transformaciones_aplicadas = []
                 for i, transformacion in enumerate(lista_transformaciones):
                     tipo = transformacion.get('tipo')
@@ -92,16 +93,41 @@ class ProcesadorImagenesImpl:
                         img = self.transformaciones[tipo](img, parametros)
                         transformaciones_aplicadas.append(tipo)
                     else:
-                        logger.error(f"[Trabajo {id_trabajo}] Transformación no soportada: {tipo}")
-                        return False
+                        logger.warning(f"[Trabajo {id_trabajo}] Transformación no soportada: {tipo}, omitiendo")
+                        # Continuar con las demás transformaciones en lugar de fallar
+                        continue
                 
-                # Guardar imagen resultante
-                logger.info(f"[Trabajo {id_trabajo}] Guardando resultado: {ruta_salida}")
-                img.save(ruta_salida, quality=95)
+                # Crear directorio de salida si no existe
+                os.makedirs(os.path.dirname(ruta_salida), exist_ok=True)
                 
-                logger.info(f"[Trabajo {id_trabajo}] ✓ Procesamiento completado. "  f"Transformaciones: {transformaciones_aplicadas}")
-                return True
+                # Guardar ÚNICA imagen resultante con todos los cambios
+                logger.info(f"[Trabajo {id_trabajo}] Guardando imagen final: {ruta_salida}")
                 
+                # Determinar formato basado en extensión
+                formato = 'PNG'
+                if ruta_salida.lower().endswith('.jpg') or ruta_salida.lower().endswith('.jpeg'):
+                    formato = 'JPEG'
+                    img.save(ruta_salida, format=formato, quality=95, optimize=True)
+                elif ruta_salida.lower().endswith('.webp'):
+                    formato = 'WEBP'
+                    img.save(ruta_salida, format=formato, quality=95)
+                else:
+                    # Por defecto PNG
+                    img.save(ruta_salida, format='PNG', optimize=True)
+                
+                # Verificar que el archivo se creó correctamente
+                if os.path.exists(ruta_salida):
+                    tamaño = os.path.getsize(ruta_salida)
+                    logger.info(
+                        f"[Trabajo {id_trabajo}] ✓ Procesamiento completado. "
+                        f"Transformaciones aplicadas: {len(transformaciones_aplicadas)}. "
+                        f"Archivo final: {tamaño/1024:.2f} KB"
+                    )
+                    return True
+                else:
+                    logger.error(f"[Trabajo {id_trabajo}] ✗ No se pudo crear archivo de salida")
+                    return False
+                    
         except Exception as e:
             logger.error(f"[Trabajo {id_trabajo}] Error procesando imagen: {e}", exc_info=True)
             return False

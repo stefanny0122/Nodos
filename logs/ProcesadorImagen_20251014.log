@@ -12,3 +12,17 @@
 [2025-10-14 21:21:32] [INFO] [ProcesadorImagen]: [Trabajo img_61] Imagen original: (702, 1247)px, formato: JPEG
 [2025-10-14 21:21:32] [INFO] [ProcesadorImagen]: [Trabajo img_61] Guardando resultado: C:\Users\GAMER\AppData\Local\Temp\tmpf0klp9e7.png
 [2025-10-14 21:21:33] [INFO] [ProcesadorImagen]: [Trabajo img_61] ✓ Procesamiento completado. Transformaciones: ['grayscale', 'blur', 'watermark']
+[2025-10-14 23:36:01] [INFO] [ProcesadorImagen]: [Trabajo img_62] Abriendo imagen: C:\Users\GAMER\AppData\Local\Temp\tmpm651va3l.jpeg
+[2025-10-14 23:36:01] [INFO] [ProcesadorImagen]: [Trabajo img_62] Imagen original: (736, 1307)px, formato: JPEG
+[2025-10-14 23:36:01] [INFO] [ProcesadorImagen]: [Trabajo img_62] Guardando resultado: C:\Users\GAMER\AppData\Local\Temp\tmpp9spn3jq.png
+[2025-10-14 23:36:01] [INFO] [ProcesadorImagen]: [Trabajo img_65] Abriendo imagen: C:\Users\GAMER\AppData\Local\Temp\tmpy04mxgx6.jpeg
+[2025-10-14 23:36:01] [INFO] [ProcesadorImagen]: [Trabajo img_65] Imagen original: (675, 1200)px, formato: JPEG
+[2025-10-14 23:36:02] [INFO] [ProcesadorImagen]: [Trabajo img_65] Guardando resultado: C:\Users\GAMER\AppData\Local\Temp\tmpg32yd8eg.png
+[2025-10-14 23:36:02] [INFO] [ProcesadorImagen]: [Trabajo img_62] ✓ Procesamiento completado. Transformaciones: ['grayscale', 'rotate']
+[2025-10-14 23:36:02] [INFO] [ProcesadorImagen]: [Trabajo img_65] ✓ Procesamiento completado. Transformaciones: ['grayscale', 'rotate']
+[2025-10-14 23:47:24] [INFO] [ProcesadorImagen]: [Trabajo img_66] Abriendo imagen: C:\Users\GAMER\AppData\Local\Temp\tmpr6kgp8ii.jpeg
+[2025-10-14 23:47:24] [INFO] [ProcesadorImagen]: [Trabajo img_66] Imagen original: (736, 1307)px, formato: JPEG
+[2025-10-14 23:47:24] [ERROR] [ProcesadorImagen]: [Trabajo img_66] Transformación no soportada: brightness
+[2025-10-14 23:47:24] [INFO] [ProcesadorImagen]: [Trabajo img_67] Abriendo imagen: C:\Users\GAMER\AppData\Local\Temp\tmppe16jzrw.jpeg
+[2025-10-14 23:47:24] [INFO] [ProcesadorImagen]: [Trabajo img_67] Imagen original: (736, 1307)px, formato: JPEG
+[2025-10-14 23:47:24] [ERROR] [ProcesadorImagen]: [Trabajo img_67] Transformación no soportada: brightness

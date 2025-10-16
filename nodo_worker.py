@@ -14,7 +14,7 @@ import threading
 import base64
 import tempfile
 import time
-from typing import Dict, Any, List  # ← IMPORTACIÓN AGREGADA
+from typing import Dict, Any, List
 from datetime import datetime
 from pathlib import Path
 
@@ -110,7 +110,7 @@ class NodoWorker:
         transformaciones: List[Dict]
     ) -> Dict[str, Any]:
         """
-        NUEVO MÉTODO: Procesa una imagen recibida como base64.
+        Procesa una imagen recibida como base64 y devuelve UNA imagen con todos los cambios.
         
         Args:
             id_trabajo: ID único del trabajo
@@ -138,7 +138,7 @@ class NodoWorker:
             }
         
         logger.info(
-            f"[{self.id_nodo}] Procesando trabajo con archivo: {id_trabajo} - "
+            f"[{self.id_nodo}] Procesando trabajo: {id_trabajo} - "
             f"Archivo: {nombre_archivo}, Transformaciones: {len(transformaciones)}"
         )
         
@@ -172,7 +172,7 @@ class NodoWorker:
                 with tempfile.NamedTemporaryFile(delete=False, suffix='.png') as temp_salida:
                     temp_salida_path = temp_salida.name
                 
-                # Procesar imagen
+                # Procesar imagen - TODAS LAS TRANSFORMACIONES EN UNA SOLA IMAGEN
                 inicio_procesamiento = time.time()
                 
                 exito = self.procesador.procesar(
@@ -184,12 +184,12 @@ class NodoWorker:
                 
                 tiempo_procesamiento = time.time() - inicio_procesamiento
                 
-                # Leer y codificar resultado si fue exitoso
+                # Leer y codificar RESULTADO FINAL si fue exitoso
                 imagen_resultado_codificada = None
                 if exito and os.path.exists(temp_salida_path):
                     with open(temp_salida_path, "rb") as f:
                         imagen_resultado_codificada = base64.b64encode(f.read()).decode('utf-8')
-                    logger.debug(f"[{id_trabajo}] Resultado codificado: {len(imagen_resultado_codificada)} caracteres")
+                    logger.debug(f"[{id_trabajo}] Imagen final codificada: {len(imagen_resultado_codificada)} caracteres")
                 
                 # Calcular tiempo total
                 tiempo_total = (datetime.now() - tiempo_inicio).total_seconds()
@@ -207,7 +207,7 @@ class NodoWorker:
                     "id_trabajo": id_trabajo,
                     "nodo": self.id_nodo,
                     "exito": exito and bool(imagen_resultado_codificada),
-                    "imagen_resultado": imagen_resultado_codificada,
+                    "imagen_resultado": imagen_resultado_codificada,  # ÚNICA IMAGEN CON TODOS LOS CAMBIOS
                     "tiempo_procesamiento": round(tiempo_procesamiento, 2),
                     "tiempo_total": round(tiempo_total, 2),
                     "transformaciones_aplicadas": len(transformaciones),
@@ -217,11 +217,11 @@ class NodoWorker:
                 
                 if exito and imagen_resultado_codificada:
                     logger.info(
-                        f"[{self.id_nodo}] ✓ Trabajo {id_trabajo} completado en "
-                        f"{tiempo_procesamiento:.2f}s (total: {tiempo_total:.2f}s)"
+                        f"[{self.id_nodo}] ✓ Trabajo {id_trabajo} completado - "
+                        f"{len(transformaciones)} transformaciones en {tiempo_procesamiento:.2f}s"
                     )
                 else:
-                    error_msg = "Error procesando imagen - no se generó resultado"
+                    error_msg = "Error procesando imagen - no se generó resultado final"
                     logger.error(f"[{self.id_nodo}] ✗ Trabajo {id_trabajo} falló: {error_msg}")
                     resultado["error"] = error_msg
                 

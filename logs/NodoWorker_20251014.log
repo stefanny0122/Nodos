@@ -16,3 +16,12 @@
 [2025-10-14 21:21:32] [INFO] [NodoWorker]: [worker03] ✓ Trabajo img_60 completado en 0.22s (total: 0.23s)
 [2025-10-14 21:21:32] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_61 - Archivo: 20251014_212125_a834b065_20f46d550e4ad41d8c3e8d6f3791effb.jpg, Transformaciones: 3
 [2025-10-14 21:21:33] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_61 completado en 0.15s (total: 0.15s)
+[2025-10-14 23:36:01] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_62 - Archivo: 20251014_233554_497cb70d_ëê²½íë8K.jpeg, Transformaciones: 2
+[2025-10-14 23:36:01] [WARNING] [NodoWorker]: [worker01] Rechazando trabajo img_63 - Capacidad: 1/5
+[2025-10-14 23:36:01] [INFO] [NodoWorker]: [worker03] Procesando trabajo con archivo: img_65 - Archivo: 20251014_233554_26fdf479_descarga5.jpeg, Transformaciones: 2
+[2025-10-14 23:36:02] [INFO] [NodoWorker]: [worker01] ✓ Trabajo img_62 completado en 0.48s (total: 0.78s)
+[2025-10-14 23:36:02] [INFO] [NodoWorker]: [worker03] ✓ Trabajo img_65 completado en 0.27s (total: 0.29s)
+[2025-10-14 23:47:24] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_66 - Archivo: 20251014_234717_846570ad_ëê²½íë8K.jpeg, Transformaciones: 3
+[2025-10-14 23:47:24] [ERROR] [NodoWorker]: [worker01] ✗ Trabajo img_66 falló: Error procesando imagen - no se generó resultado
+[2025-10-14 23:47:24] [INFO] [NodoWorker]: [worker01] Procesando trabajo con archivo: img_67 - Archivo: 20251014_234717_492b9ef7_descarga6.jpeg, Transformaciones: 3
+[2025-10-14 23:47:24] [ERROR] [NodoWorker]: [worker01] ✗ Trabajo img_67 falló: Error procesando imagen - no se generó resultado
