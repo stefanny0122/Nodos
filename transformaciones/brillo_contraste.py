@@ -3,23 +3,31 @@ from PIL import ImageEnhance
 class BrilloContraste:
     @staticmethod
     def aplicar(img, parametros=None):
-        """Ajusta el brillo y contraste de la imagen"""
+        """Ajusta el brillo y contraste de la imagen usando parámetros del frontend"""
         if parametros is None:
             parametros = {}
         
         try:
-            brillo = parametros.get("brillo", 1.0)
-            contraste = parametros.get("contraste", 1.0)
+            # Parámetros del frontend Angular
+            brillo = parametros.get("value", 0)  # Valor de -100 a 100
+            contraste = parametros.get("contraste", 0)  # Valor de -100 a 100
+            
+            # Convertir valores de -100 a 100 a factores de 0.0 a 2.0
+            factor_brillo = 1.0 + (brillo / 100.0)  # -100 -> 0.0, 0 -> 1.0, 100 -> 2.0
+            factor_contraste = 1.0 + (contraste / 100.0)  # -100 -> 0.0, 0 -> 1.0, 100 -> 2.0
+            
+            print(f"Aplicando brillo: {brillo} -> factor: {factor_brillo}")
+            print(f"Aplicando contraste: {contraste} -> factor: {factor_contraste}")
             
             # Aplicar brillo
-            if brillo != 1.0:
+            if factor_brillo != 1.0:
                 enhancer = ImageEnhance.Brightness(img)
-                img = enhancer.enhance(brillo)
+                img = enhancer.enhance(factor_brillo)
             
             # Aplicar contraste
-            if contraste != 1.0:
+            if factor_contraste != 1.0:
                 enhancer = ImageEnhance.Contrast(img)
-                img = enhancer.enhance(contraste)
+                img = enhancer.enhance(factor_contraste)
             
             return img
             

@@ -5,6 +5,8 @@ class EscalaGrises:
     def aplicar(img, parametros=None):
         """Convierte imagen a escala de grises"""
         try:
+            print("Aplicando escala de grises")
+            
             if img.mode != 'L':
                 return img.convert('L')
             return img

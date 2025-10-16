@@ -3,3 +3,23 @@
 [2025-10-16 00:00:33] [INFO] [ProcesadorImagen]: Procesador inicializado con 20 transformaciones
 [2025-10-16 01:20:40] [INFO] [ProcesadorImagen]: Procesador inicializado con 20 transformaciones
 [2025-10-16 01:20:55] [INFO] [ProcesadorImagen]: Procesador inicializado con 20 transformaciones
+[2025-10-16 01:33:01] [INFO] [ProcesadorImagen]: [Trabajo img_115] Procesando imagen con 4 transformaciones
+[2025-10-16 01:33:01] [INFO] [ProcesadorImagen]: [Trabajo img_116] Procesando imagen con 4 transformaciones
+[2025-10-16 01:33:01] [INFO] [ProcesadorImagen]: [Trabajo img_115] Imagen original: (736, 1308)px, formato: JPEG
+[2025-10-16 01:33:02] [WARNING] [ProcesadorImagen]: [Trabajo img_115] Transformación no soportada: contrast, omitiendo
+[2025-10-16 01:33:02] [INFO] [ProcesadorImagen]: [Trabajo img_116] Imagen original: (720, 1440)px, formato: JPEG
+[2025-10-16 01:33:02] [WARNING] [ProcesadorImagen]: [Trabajo img_116] Transformación no soportada: contrast, omitiendo
+[2025-10-16 01:33:02] [INFO] [ProcesadorImagen]: [Trabajo img_115] Guardando imagen final: C:\Users\GAMER\AppData\Local\Temp\tmpgr1k724m.png
+[2025-10-16 01:33:02] [INFO] [ProcesadorImagen]: [Trabajo img_116] Guardando imagen final: C:\Users\GAMER\AppData\Local\Temp\tmpsd67pw3j.png
+[2025-10-16 01:33:02] [INFO] [ProcesadorImagen]: [Trabajo img_116] ✓ Procesamiento completado. Transformaciones aplicadas: 3. Archivo final: 865.81 KB
+[2025-10-16 01:33:02] [INFO] [ProcesadorImagen]: [Trabajo img_115] ✓ Procesamiento completado. Transformaciones aplicadas: 3. Archivo final: 812.20 KB
+[2025-10-16 01:35:06] [INFO] [ProcesadorImagen]: [Trabajo img_119] Procesando imagen con 4 transformaciones
+[2025-10-16 01:35:06] [INFO] [ProcesadorImagen]: [Trabajo img_119] Imagen original: (736, 1308)px, formato: JPEG
+[2025-10-16 01:35:06] [WARNING] [ProcesadorImagen]: [Trabajo img_119] Transformación no soportada: contrast, omitiendo
+[2025-10-16 01:35:06] [INFO] [ProcesadorImagen]: [Trabajo img_119] Guardando imagen final: C:\Users\GAMER\AppData\Local\Temp\tmpp3fb8orx.png
+[2025-10-16 01:35:07] [INFO] [ProcesadorImagen]: [Trabajo img_120] Procesando imagen con 4 transformaciones
+[2025-10-16 01:35:07] [INFO] [ProcesadorImagen]: [Trabajo img_120] Imagen original: (720, 1440)px, formato: JPEG
+[2025-10-16 01:35:07] [WARNING] [ProcesadorImagen]: [Trabajo img_120] Transformación no soportada: contrast, omitiendo
+[2025-10-16 01:35:07] [INFO] [ProcesadorImagen]: [Trabajo img_120] Guardando imagen final: C:\Users\GAMER\AppData\Local\Temp\tmptr59mx70.png
+[2025-10-16 01:35:08] [INFO] [ProcesadorImagen]: [Trabajo img_120] ✓ Procesamiento completado. Transformaciones aplicadas: 3. Archivo final: 836.68 KB
+[2025-10-16 01:35:09] [INFO] [ProcesadorImagen]: [Trabajo img_119] ✓ Procesamiento completado. Transformaciones aplicadas: 3. Archivo final: 934.79 KB

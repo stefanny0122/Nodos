@@ -3,17 +3,20 @@ from PIL import ImageOps
 class Reflejar:
     @staticmethod
     def aplicar(img, parametros=None):
-        """Refleja la imagen horizontal o verticalmente"""
+        """Refleja la imagen según el tipo del frontend"""
         if parametros is None:
             parametros = {}
         
         try:
-            tipo = parametros.get("tipo", "horizontal")  # "horizontal" o "vertical"
+            # Parámetros del frontend Angular
+            tipo = parametros.get("tipo", "horizontal")  # "flip" o "flop" del frontend
             
-            if tipo == "horizontal":
-                return ImageOps.mirror(img)
-            elif tipo == "vertical":
-                return ImageOps.flip(img)
+            print(f"Aplicando reflejo tipo: {tipo}")
+            
+            if tipo == "flip" or tipo == "horizontal":
+                return ImageOps.mirror(img)  # Volteo horizontal
+            elif tipo == "flop" or tipo == "vertical":
+                return ImageOps.flip(img)    # Volteo vertical
             else:
                 return img
                 

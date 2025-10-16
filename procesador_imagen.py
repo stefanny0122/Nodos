@@ -8,6 +8,18 @@ from PIL import Image, ImageFilter, ImageEnhance
 from typing import Dict, List, Any, Optional
 from utils.logger import get_logger
 
+# Importar todas las transformaciones
+from transformaciones.escala_grises import EscalaGrises
+from transformaciones.redimensionar import Redimensionar
+from transformaciones.recortar import Recortar
+from transformaciones.rotar import Rotar
+from transformaciones.reflejar import Reflejar
+from transformaciones.desenfocar import Desenfocar
+from transformaciones.perfilar import Perfilar
+from transformaciones.brillo_contraste import BrilloContraste
+from transformaciones.marca_agua import MarcaAgua
+from transformaciones.convertir_formato import ConvertirFormato
+
 logger = get_logger("ProcesadorImagen")
 
 
@@ -18,37 +30,25 @@ class ProcesadorImagenesImpl:
     """
     
     def __init__(self):
-        # Diccionario de transformaciones disponibles con alias
+        # Diccionario de transformaciones disponibles con mapeo desde el frontend
         self.transformaciones = {
-            # Transformaciones básicas
-            'escala_grises': self._aplicar_escala_grises,
-            'grayscale': self._aplicar_escala_grises,  # Alias en inglés
-            'redimensionar': self._aplicar_redimensionar,
-            'resize': self._aplicar_redimensionar,     # Alias en inglés
-            'rotar': self._aplicar_rotar,
-            'rotate': self._aplicar_rotar,             # Alias en inglés
-            'recortar': self._aplicar_recortar,
-            'crop': self._aplicar_recortar,            # Alias en inglés
-            'desenfocar': self._aplicar_desenfocar,
-            'blur': self._aplicar_desenfocar,          # Alias en inglés
-            
-            # Efectos avanzados
-            'brillo_contraste': self._aplicar_brillo_contraste,
-            'brightness_contrast': self._aplicar_brillo_contraste,  # Alias
-            'perfilar': self._aplicar_perfilar,
-            'edge_enhance': self._aplicar_perfilar,    # Alias en inglés
-            
-            # Formatos y marcas de agua
-            'convertir_formato': self._aplicar_convertir_formato,
-            'convert_format': self._aplicar_convertir_formato,  # Alias
-            'marca_agua': self._aplicar_marca_agua,
-            'watermark': self._aplicar_marca_agua,     # Alias en inglés
-            'reflejar': self._aplicar_reflejar,
-            'flip': self._aplicar_reflejar             # Alias en inglés
+            # Mapeo de IDs del frontend a clases de transformación
+            'grayscale': EscalaGrises,
+            'brightness': BrilloContraste,
+            'contrast': BrilloContraste,
+            'blur': Desenfocar,
+            'sharpen': Perfilar,
+            'rotate': Rotar,
+            'watermark': MarcaAgua,
+            'flip': Reflejar,
+            'flop': Reflejar,
+            'resize': Redimensionar,
+            'crop': Recortar,
+            'convert_format': ConvertirFormato
         }
         
         logger.info(f"Procesador inicializado con {len(self.transformaciones)} transformaciones")
-    
+
     def procesar(self, ruta_entrada: str, ruta_salida: str, 
                  lista_transformaciones: List[Dict], id_trabajo: str = None) -> bool:
         """
@@ -58,7 +58,7 @@ class ProcesadorImagenesImpl:
         Args:
             ruta_entrada: Ruta del archivo de entrada
             ruta_salida: Ruta donde guardar el resultado
-            lista_transformaciones: Lista de dicts con 'tipo' y 'parametros'
+            lista_transformaciones: Lista de dicts con 'tipo' y 'parametros' del frontend
             id_trabajo: ID del trabajo para logging
             
         Returns:
@@ -85,16 +85,24 @@ class ProcesadorImagenesImpl:
                 # Aplicar transformaciones en orden - SOBRE LA MISMA IMAGEN
                 transformaciones_aplicadas = []
                 for i, transformacion in enumerate(lista_transformaciones):
-                    tipo = transformacion.get('tipo')
+                    tipo_frontend = transformacion.get('tipo')  # ID del frontend
                     parametros = transformacion.get('parametros', {})
                     
-                    if tipo in self.transformaciones:
-                        logger.debug(f"[Trabajo {id_trabajo}] Aplicando transformación {i+1}: {tipo}")
-                        img = self.transformaciones[tipo](img, parametros)
-                        transformaciones_aplicadas.append(tipo)
+                    # Mapear tipo del frontend a clase de transformación
+                    if tipo_frontend in self.transformaciones:
+                        clase_transformacion = self.transformaciones[tipo_frontend]
+                        
+                        # Para flip/flop, pasar el tipo como parámetro
+                        if tipo_frontend in ['flip', 'flop']:
+                            parametros['tipo'] = tipo_frontend
+                        
+                        logger.debug(f"[Trabajo {id_trabajo}] Aplicando transformación {i+1}: {tipo_frontend} con parámetros: {parametros}")
+                        
+                        # Aplicar la transformación
+                        img = clase_transformacion.aplicar(img, parametros)
+                        transformaciones_aplicadas.append(tipo_frontend)
                     else:
-                        logger.warning(f"[Trabajo {id_trabajo}] Transformación no soportada: {tipo}, omitiendo")
-                        # Continuar con las demás transformaciones en lugar de fallar
+                        logger.warning(f"[Trabajo {id_trabajo}] Transformación no soportada: {tipo_frontend}, omitiendo")
                         continue
                 
                 # Crear directorio de salida si no existe
@@ -131,105 +139,3 @@ class ProcesadorImagenesImpl:
         except Exception as e:
             logger.error(f"[Trabajo {id_trabajo}] Error procesando imagen: {e}", exc_info=True)
             return False
-    
-    # ========== IMPLEMENTACIONES DE TRANSFORMACIONES ==========
-    
-    def _aplicar_escala_grises(self, img: Image.Image, parametros: Dict) -> Image.Image:
-        """Convierte imagen a escala de grises"""
-        return img.convert('L').convert('RGB')
-    
-    def _aplicar_redimensionar(self, img: Image.Image, parametros: Dict) -> Image.Image:
-        """Redimensiona imagen"""
-        ancho = parametros.get('ancho', img.width)
-        alto = parametros.get('alto', img.height)
-        return img.resize((ancho, alto), Image.Resampling.LANCZOS)
-    
-    def _aplicar_rotar(self, img: Image.Image, parametros: Dict) -> Image.Image:
-        """Rota imagen"""
-        angulo = parametros.get('degrees', 90)
-        return img.rotate(angulo, expand=True)
-    
-    def _aplicar_recortar(self, img: Image.Image, parametros: Dict) -> Image.Image:
-        """Recorta imagen"""
-        izquierda = parametros.get('left', 0)
-        superior = parametros.get('top', 0)
-        derecha = parametros.get('right', img.width)
-        inferior = parametros.get('bottom', img.height)
-        return img.crop((izquierda, superior, derecha, inferior))
-    
-    def _aplicar_desenfocar(self, img: Image.Image, parametros: Dict) -> Image.Image:
-        """Aplica desenfoque gaussiano"""
-        radio = parametros.get('radio', 2)
-        return img.filter(ImageFilter.GaussianBlur(radius=radio))
-    
-    def _aplicar_brillo_contraste(self, img: Image.Image, parametros: Dict) -> Image.Image:
-        """Ajusta brillo y contraste"""
-        factor_brillo = parametros.get('brillo', 1.0)
-        factor_contraste = parametros.get('contraste', 1.0)
-        
-        # Aplicar brillo
-        if factor_brillo != 1.0:
-            enhancer = ImageEnhance.Brightness(img)
-            img = enhancer.enhance(factor_brillo)
-        
-        # Aplicar contraste
-        if factor_contraste != 1.0:
-            enhancer = ImageEnhance.Contrast(img)
-            img = enhancer.enhance(factor_contraste)
-        
-        return img
-    
-    def _aplicar_perfilar(self, img: Image.Image, parametros: Dict) -> Image.Image:
-        """Realza bordes de la imagen"""
-        return img.filter(ImageFilter.EDGE_ENHANCE_MORE)
-    
-    def _aplicar_convertir_formato(self, img: Image.Image, parametros: Dict) -> Image.Image:
-        """Convierte formato (se aplica al guardado)"""
-        # Esta transformación se maneja en el guardado
-        return img
-    
-    def _aplicar_marca_agua(self, img: Image.Image, parametros: Dict) -> Image.Image:
-        """Aplica marca de agua de texto"""
-        from PIL import ImageDraw, ImageFont
-        
-        texto = parametros.get('texto', 'MARCA DE AGUA')
-        posicion = parametros.get('posicion', 'centro')
-        
-        draw = ImageDraw.Draw(img)
-        
-        # Configurar fuente
-        try:
-            font_size = parametros.get('tamaño_fuente', 20)
-            font = ImageFont.truetype("arial.ttf", font_size)
-        except:
-            font = ImageFont.load_default()
-        
-        # Calcular posición
-        bbox = draw.textbbox((0, 0), texto, font=font)
-        text_width = bbox[2] - bbox[0]
-        text_height = bbox[3] - bbox[1]
-        
-        if posicion == 'centro':
-            x = (img.width - text_width) // 2
-            y = (img.height - text_height) // 2
-        elif posicion == 'esquina_inf_derecha':
-            x = img.width - text_width - 10
-            y = img.height - text_height - 10
-        else:  # esquina_sup_izquierda
-            x = 10
-            y = 10
-        
-        # Dibujar texto
-        color = parametros.get('color', (255, 255, 255, 128))
-        draw.text((x, y), texto, fill=color, font=font)
-        
-        return img
-    
-    def _aplicar_reflejar(self, img: Image.Image, parametros: Dict) -> Image.Image:
-        """Refleja imagen horizontal o verticalmente"""
-        direccion = parametros.get('direccion', 'horizontal')
-        
-        if direccion == 'horizontal':
-            return img.transpose(Image.FLIP_LEFT_RIGHT)
-        else:  # vertical
-            return img.transpose(Image.FLIP_TOP_BOTTOM)
